@@ -1,0 +1,25 @@
+<form action="result.php" method="post">
+    <input type="text" name="first-value">
+    <select name="math-op">
+        <option value="addition">+</option>
+        <option value="subtraction">-</option>
+        <option value="multiplication">?</option>
+        <option value="division">?</option>
+    </select>
+    <input type="text" name="second-value">
+    <input type="submit" name="submit" value="Посчитать!">
+</form>
+
+$result = 0;
+if (isset($_POST['submit'])) {
+    if ($_POST['math-op'] == 'addition') {
+        $result = $_POST['first-value'] + $_POST['second-value'];
+    } elseif ($_POST['math-op'] == 'subtraction') {
+        $result = $_POST['first-value'] - $_POST['second-value'];
+    } elseif ($_POST['math-op'] == 'multiplication') {
+        $result = $_POST['first-value'] * $_POST['second-value'];
+    } elseif ($_POST['math-op'] == 'division') {
+        $result = $_POST['first-value'] / $_POST['second-value'];
+    }
+    echo $result;
+}
